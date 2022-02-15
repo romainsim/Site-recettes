@@ -1,3 +1,5 @@
+Projet réalisé par Romain SIMON.
+L'objectif principal était de réaliser le PHP du site, donc pour la partie HTML/CSS j'ai utilisé un template libre d'accès que j'ai trouvé sur le site suivant :
 
 TITLE: 
 Guide - Fully Responsive Free HTML5 template
