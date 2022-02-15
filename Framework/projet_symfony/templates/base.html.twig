@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Papilles{% endblock %}</title>
+
+        {% block stylesheets %}
+        {% endblock %}
+
+        {% block javascripts %}
+        {% endblock %}
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+    </body>
+    <footer>
+        <div id="fh5co-page">
+            <section id="fh5co-projects">
+                <p>	<a id="goto-admin" href="{{ path('admin') }}">Admin</a></p>
+            </section>
+        </div>
+    </footer>
+</html>

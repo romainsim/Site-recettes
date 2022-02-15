@@ -1,0 +1,175 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Papilles - Reservation{% endblock %}
+{% block stylesheets %}
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,600,400italic,700' rel='stylesheet' type='text/css'>
+
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
+    <!-- Flexslider -->
+    <link rel="stylesheet" href="{{ asset('css/flexslider.css') }}">
+    <!-- Icomoon Icon Fonts-->
+    <link rel="stylesheet" href="{{ asset('css/icomoon.css') }}">
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="{{ asset('css/magnific-popup.css') }}">
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+{% endblock %}
+
+{% block javascripts %}
+    <!-- Modernizr JS -->
+    <script src="{{ asset('js/modernizr-2.6.2.min.js') }}"></script>
+    <!-- FOR IE9 below -->
+    <!--[if lt IE 9]>
+    <script src="{{ asset('js/respond.min.js') }}"></script>
+    <![endif]-->
+    <!-- jQuery -->
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <!-- jQuery Easing -->
+    <script src="{{ asset('js/jquery.easing.1.3.js') }}"></script>
+    <!-- Bootstrap -->
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <!-- Waypoints -->
+    <script src="{{ asset('js/jquery.waypoints.min.js') }}"></script>
+    <!-- Flexslider -->
+    <script src="{{ asset('js/jquery.flexslider-min.js') }}"></script>
+    <!-- Magnific Popup -->
+    <script src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ asset('js/magnific-popup-options.js') }}"></script>
+
+
+    <!-- Main JS (Do not remove) -->
+    <script src="{{ asset('js/main.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+<!-- Loader -->
+<div class="fh5co-loader"></div>
+
+<div id="fh5co-page">
+    <section id="fh5co-header">
+        <div class="container">
+            <nav role="navigation">
+                <ul class="pull-left left-menu">
+                    <li><a href="{{ path('entree') }}">Entrées</a></li>
+                    <li><a href="{{ path('plat') }}">Plats</a></li>
+                    <li><a href="{{ path('dessert') }}">Desserts</a></li>
+                    <li><a href="{{ path('reservation') }}">Réservation</a></li>
+                </ul>
+                <h1 id="fh5co-logo"><a href="{{ path('default') }}">Papilles<span>.</span></a></h1>
+                <ul class="pull-right right-menu">
+                    {% if app.user %}
+                        <li><p class="login">Bonjour {{ app.user.nom }} {{ app.user.prenom }}</p></li>
+                        <li><a href="{{ path('logout') }}">Déconnexion</a></li>
+                    {% else %}
+                        <li><a href="{{ path('login') }}">S'identifier</a></li>
+                        <li class="fh5co-cta-btn"><a href="{{ path('compte') }}">Créer un compte</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+    </section>
+    <section id="fh5co-hero" class="no-js-fullheight" style="background-image: url({{ asset('images/food_reservation.webp') }});" data-next="yes">
+        <div class="fh5co-overlay"></div>
+        <div class="container">
+            <div class="fh5co-intro no-js-fullheight">
+                <div class="fh5co-intro-text">
+                    <!--
+                        INFO:
+                        Change the class to 'fh5co-right-position' or 'fh5co-center-position' to change the layout position
+                        Example:
+                        <div class="fh5co-right-position">
+                    -->
+                    <div class="fh5co-center-position">
+                        <h2 class="animate-box">Venez apprendre nos recettes</h2>
+                        <h3 class="animate-box">Prenez rendez-vous avec nos chefs, pour apprendre une ou plusieurs de vos recettes préférées</h3>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="fh5co-learn-more animate-box">
+            <a href="#" class="scroll-btn">
+                <span class="text">Faites votre choix</span>
+                <span class="arrow"><i class="icon-chevron-down"></i></span>
+            </a>
+        </div>
+    </section>
+    <!-- END #fh5co-hero -->
+
+    <section id="fh5co-pricing">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6 animate-box">
+                    <div class="price-box">
+                        <h2 class="pricing-plan">1 recette</h2>
+                        <div class="price"><sup class="currency">€</sup>12<small>/personne</small></div>
+                        <p>Apprenez une recette</p>
+                        <hr>
+                        <ul class="pricing-info">
+                            <li>1 plat de votre choix</li>
+                            <li>Ingrédients & ustensiles fournis</li>
+                        </ul>
+                        <a href="{{ path('reserver', {'id' :  1}) }}" class="btn btn-default btn-sm">Choisir</a>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 animate-box">
+                    <div class="price-box">
+                        <h2 class="pricing-plan">Repas complet</h2>
+                        <div class="price"><sup class="currency">€</sup>35<small>/personne</small></div>
+                        <p>Apprenez à cuisiner un repas complet de votre choix</p>
+                        <hr>
+                        <ul class="pricing-info">
+                            <li>1 entrée</li>
+                            <li>1 plat</li>
+                            <li>1 dessert</li>
+                            <li>Ingrédients & ustensiles fournis</li>
+                        </ul>
+                        <a href="{{ path('reserver', {'id' :  2}) }}" class="btn btn-default btn-sm">Choisir</a>
+                    </div>
+                </div>
+                <div class="clearfix visible-sm-block"></div>
+                <div class="col-md-3 col-sm-6 animate-box">
+                    <div class="price-box popular">
+                        <div class="popular-text">Prix réduit</div>
+                        <h2 class="pricing-plan">Demi-journée</h2>
+                        <div class="price"><sup class="currency">€</sup>65<small>/personne</small></div>
+                        <p>Passez la demi-journée à cuisiner avec l'un de nos chefs, qui cuisinera pour vous votre diner</p>
+                        <hr>
+                        <ul class="pricing-info">
+                            <li>Repas cuisiné par notre chef</li>
+                            <li>3 recettes de votre choix à apprendre</li>
+                            <li>Ingrédients & ustensiles fournis</li>
+                        </ul>
+                        <a href="{{ path('reserver', {'id' :  3}) }}" class="btn btn-primary btn-sm">Choisir</a>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 animate-box">
+                    <div class="price-box">
+                        <h2 class="pricing-plan">Journée complète</h2>
+                        <div class="price"><sup class="currency">€</sup>150<small>/personne</small></div>
+                        <p>Passez la journée à cuisiner avec l'un de nos chefs, qui cuisinera pour vous votre déjeuner et votre diner</p>
+                        <hr>
+                        <ul class="pricing-info">
+                            <li>2 repas cuisinés par notre chef</li>
+                            <li>6 recettes de votre choix à apprendre</li>
+                            <li>Dégustation de vins en fin de journée</li>
+                            <li>Ingrédients et ustensiles fournis</li>
+                        </ul>
+                        <a href="{{ path('reserver', {'id' :  4}) }}" class="btn btn-default btn-sm">Choisir</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- END #fh5co-pricing -->
+
+
+</div>
+<!-- END #fh5co-page -->
+{% endblock %}
